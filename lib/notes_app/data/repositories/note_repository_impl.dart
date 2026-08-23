@@ -54,13 +54,8 @@ class NoteRepositoryImpl implements NoteRepository {
     // TODO: MISSING CRUD OPERATION (Part of the 75 Marks Assignment)
     //
     // Instructions: Implement this method to delete a note from the list.
-    // Recommended code:
-    //   await Future.delayed(const Duration(milliseconds: 200));
-    //   _notes.removeWhere((note) => note.id == id);
     // =========================================================================
-    
-    throw UnimplementedError(
-      'The "Delete" operation has not been implemented in the NoteRepositoryImpl (Data Domain layer).'
-    );
+    await Future.delayed(const Duration(milliseconds: 200));
+    _notes.removeWhere((note) => note.id == id);
   }
 }
