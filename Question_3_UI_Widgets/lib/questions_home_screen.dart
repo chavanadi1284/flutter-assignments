@@ -12,16 +12,12 @@ class QuestionsHomeScreen extends StatelessWidget {
       backgroundColor: const Color(0xFF0F172A),
       appBar: AppBar(
         title: const Text(
-          '3 UI Questions',
+          '3 UI Questions (Q3)',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -57,8 +53,6 @@ class QuestionsHomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-
-              // The three items
               Expanded(
                 child: ListView(
                   physics: const BouncingScrollPhysics(),

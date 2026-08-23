@@ -16,16 +16,11 @@ class ScreenOne extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(24.0),
-            // Outer Container with premium styling (Glassmorphism & Gradient Border)
             child: Container(
               width: double.infinity,
               constraints: const BoxConstraints(maxWidth: 400),
@@ -58,11 +53,9 @@ class ScreenOne extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
-                // Column: Vertical stack of profile elements
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Profile CircleAvatar nested inside a styled Container
                     Container(
                       padding: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
@@ -85,8 +78,6 @@ class ScreenOne extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-
-                    // Title / Name using custom GoogleFonts
                     Text(
                       'Alex Morgan',
                       style: GoogleFonts.outfit(
@@ -97,8 +88,6 @@ class ScreenOne extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 6),
-
-                    // Subtitle / Profession
                     Text(
                       'Flutter Developer & UI Designer',
                       style: GoogleFonts.outfit(
@@ -109,8 +98,6 @@ class ScreenOne extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 24),
-
-                    // Stats Section using Rows & Columns
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -122,8 +109,6 @@ class ScreenOne extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 28),
-
-                    // Skill chips using Wrap (flowing Row/Column hybrid)
                     Text(
                       'TECHNICAL STACK',
                       style: GoogleFonts.outfit(
@@ -147,8 +132,6 @@ class ScreenOne extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 32),
-
-                    // Custom styled Button Container
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(

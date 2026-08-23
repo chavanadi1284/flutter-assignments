@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// Travel Destination data structure
 class Destination {
   final String id;
   final String title;
@@ -27,7 +26,6 @@ class ScreenTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 4 sample destinations
     final List<Destination> destinations = [
       Destination(
         id: '1',
@@ -77,10 +75,6 @@ class ScreenTwo extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -99,7 +93,6 @@ class ScreenTwo extends StatelessWidget {
                   ),
                 ),
               ),
-              // Grid Layout Section
               Expanded(
                 child: GridView.builder(
                   physics: const BouncingScrollPhysics(),
@@ -136,7 +129,6 @@ class ScreenTwo extends StatelessWidget {
           color: Colors.transparent,
           child: InkWell(
             onTap: () {
-              // Navigation trigger to Detail view
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -150,7 +142,6 @@ class ScreenTwo extends StatelessWidget {
                 Expanded(
                   child: Stack(
                     children: [
-                      // Hero Animation containing the network image
                       Hero(
                         tag: 'image-${dest.id}',
                         child: Container(
@@ -269,7 +260,6 @@ class ScreenTwo extends StatelessWidget {
   }
 }
 
-// Destination Details Screen (Loaded via Navigator with Hero target)
 class DestinationDetailScreen extends StatelessWidget {
   final Destination destination;
 
@@ -283,7 +273,6 @@ class DestinationDetailScreen extends StatelessWidget {
         children: [
           Stack(
             children: [
-              // Hero element zooms in from grid to full header height
               Hero(
                 tag: 'image-${destination.id}',
                 child: Container(
@@ -300,7 +289,6 @@ class DestinationDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // Gradient Overlay
               Container(
                 height: 380,
                 decoration: BoxDecoration(
@@ -319,7 +307,6 @@ class DestinationDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // App bar items inside stack
               SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
@@ -341,7 +328,6 @@ class DestinationDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // Header Details Text
               Positioned(
                 bottom: 24,
                 left: 24,
@@ -393,7 +379,6 @@ class DestinationDetailScreen extends StatelessWidget {
               ),
             ],
           ),
-          // Info Cards and Description
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(24.0),
@@ -427,7 +412,6 @@ class DestinationDetailScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  // Booking Action Panel
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(

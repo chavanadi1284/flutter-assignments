@@ -41,7 +41,7 @@ class NotesProvider extends ChangeNotifier {
         createdAt: DateTime.now(),
       );
       await _repository.addNote(newNote);
-      await fetchNotes(); // Refresh list
+      await fetchNotes();
       return true;
     } catch (e) {
       _errorMessage = e.toString();
@@ -63,7 +63,7 @@ class NotesProvider extends ChangeNotifier {
         createdAt: DateTime.now(),
       );
       await _repository.updateNote(updatedNote);
-      await fetchNotes(); // Refresh list
+      await fetchNotes();
       return true;
     } catch (e) {
       _errorMessage = e.toString();
@@ -74,13 +74,11 @@ class NotesProvider extends ChangeNotifier {
   }
 
   Future<String?> deleteNote(String id) async {
-    // Returns null if success, otherwise returns the error message
     try {
       await _repository.deleteNote(id);
-      await fetchNotes(); // Refresh list
+      await fetchNotes();
       return null;
     } on UnimplementedError catch (e) {
-      // Catch unimplemented error specifically to notify UI
       return e.message ?? 'Unimplemented operation';
     } catch (e) {
       return e.toString();

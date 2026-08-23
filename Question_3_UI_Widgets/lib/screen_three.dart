@@ -39,7 +39,6 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-    // Reliable Lottie animation URL (celebration/success checkmark)
     const lottieUrl = 'https://assets5.lottiefiles.com/packages/lf20_s2lryxtd.json';
 
     return Scaffold(
@@ -52,10 +51,6 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -64,7 +59,6 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Container with neon/glow decoration
                 Container(
                   padding: const EdgeInsets.all(24),
                   constraints: const BoxConstraints(maxWidth: 365),
@@ -85,7 +79,6 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                   ),
                   child: Column(
                     children: [
-                      // Animated box size changing based on state
                       AnimatedContainer(
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.easeInOut,
@@ -102,7 +95,6 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                             fit: BoxFit.contain,
                             repeat: true,
                             animate: _isSuccess,
-                            // ErrorBuilder provides high-fidelity fallback if user is offline
                             errorBuilder: (context, error, stackTrace) {
                               return Center(
                                 child: Icon(
@@ -124,7 +116,6 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                         ),
                       ),
                       const SizedBox(height: 32),
-                      
                       Text(
                         _isSuccess ? 'Task Completed!' : 'Animation Playground',
                         style: GoogleFonts.outfit(
@@ -134,7 +125,6 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                         ),
                       ),
                       const SizedBox(height: 8),
-                      
                       Text(
                         _isSuccess
                             ? 'The Lottie file is now playing in an active loop. Click the button to pause it.'
@@ -147,8 +137,6 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                         ),
                       ),
                       const SizedBox(height: 28),
-
-                      // Animated scale button using custom InkWell and ScaleTransition
                       ScaleTransition(
                         scale: Tween<double>(begin: 1.0, end: 0.92).animate(
                           CurvedAnimation(parent: _btnController, curve: Curves.easeIn),

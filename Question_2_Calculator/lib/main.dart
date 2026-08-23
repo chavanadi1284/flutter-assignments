@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'home_screen.dart';
-import 'notes_app/presentation/providers/notes_provider.dart';
+import 'screens/calculator_screen.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => NotesProvider()),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,19 +12,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Assignments',
+      title: 'Calculator (Q2)',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6200EE),
+          seedColor: Colors.cyan,
           brightness: Brightness.dark,
         ),
         textTheme: GoogleFonts.outfitTextTheme(
           ThemeData.dark().textTheme,
         ),
       ),
-      home: const HomeScreen(),
+      home: const CalculatorScreen(),
     );
   }
 }

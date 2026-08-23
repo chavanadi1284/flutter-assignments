@@ -59,7 +59,7 @@ class _NotesListScreenState extends State<NotesListScreen> {
             ),
             const SizedBox(height: 16),
             const Text(
-              'This error occurs because the deleteNote method in the data/domain layer (NoteRepositoryImpl) throws an UnimplementedError. This is the missing operation (for 75 Marks evaluation) that the student is expected to implement.',
+              'This error occurs when the deleteNote method in the repository throws an UnimplementedError.',
               style: TextStyle(color: Colors.white60, fontSize: 13, height: 1.4),
             ),
           ],
@@ -68,22 +68,6 @@ class _NotesListScreenState extends State<NotesListScreen> {
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
             child: const Text('Dismiss', style: TextStyle(color: Colors.cyanAccent)),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.cyanAccent.shade700,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            ),
-            onPressed: () {
-              Navigator.of(ctx).pop();
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('To fix: edit lib/notes_app/data/repositories/note_repository_impl.dart'),
-                  duration: Duration(seconds: 4),
-                ),
-              );
-            },
-            child: const Text('How to Fix', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -96,16 +80,12 @@ class _NotesListScreenState extends State<NotesListScreen> {
       backgroundColor: const Color(0xFF0F172A),
       appBar: AppBar(
         title: const Text(
-          'Notes Room',
+          'Notes Room (Q1)',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh, color: Colors.white),
@@ -149,11 +129,6 @@ class _NotesListScreenState extends State<NotesListScreen> {
                     'No notes available yet.',
                     style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 16),
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Click the + button to add your first note.',
-                    style: TextStyle(color: Colors.white.withOpacity(0.3), fontSize: 13),
-                  ),
                 ],
               ),
             );
@@ -191,7 +166,6 @@ class _NotesListScreenState extends State<NotesListScreen> {
   }
 
   Widget _buildNoteCard(BuildContext context, Note note, NotesProvider provider) {
-    // Format timestamp
     final dateStr = '${note.createdAt.day}/${note.createdAt.month}/${note.createdAt.year} at ${note.createdAt.hour.toString().padLeft(2, '0')}:${note.createdAt.minute.toString().padLeft(2, '0')}';
 
     return Container(
@@ -252,7 +226,6 @@ class _NotesListScreenState extends State<NotesListScreen> {
                             onPressed: () async {
                               final missingError = await provider.deleteNote(note.id);
                               if (missingError != null) {
-                                // Show warning dialog highlighting the missing data domain layer operation
                                 if (mounted) {
                                   _showMissingOperationDialog(context, missingError);
                                 }
