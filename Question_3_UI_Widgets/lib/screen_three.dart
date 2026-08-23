@@ -66,12 +66,12 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                     color: const Color(0xFF1E293B),
                     borderRadius: BorderRadius.circular(28),
                     border: Border.all(
-                      color: _isSuccess ? Colors.emeraldAccent.withOpacity(0.3) : Colors.cyanAccent.withOpacity(0.15),
+                      color: _isSuccess ? Colors.greenAccent.withValues(alpha: 0.3) : Colors.cyanAccent.withValues(alpha: 0.15),
                       width: 2,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: _isSuccess ? Colors.emeraldAccent.withOpacity(0.08) : Colors.cyanAccent.withOpacity(0.04),
+                        color: _isSuccess ? Colors.greenAccent.withValues(alpha: 0.08) : Colors.cyanAccent.withValues(alpha: 0.04),
                         blurRadius: 30,
                         spreadRadius: 2,
                       ),
@@ -85,7 +85,7 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                         height: 200,
                         width: 200,
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: ClipRRect(
@@ -100,7 +100,7 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                                 child: Icon(
                                   _isSuccess ? Icons.check_circle_outline : Icons.sentiment_satisfied_alt,
                                   size: 100,
-                                  color: _isSuccess ? Colors.emeraldAccent : Colors.white30,
+                                  color: _isSuccess ? Colors.greenAccent : Colors.white30,
                                 ),
                               );
                             },
@@ -133,7 +133,7 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                         style: GoogleFonts.outfit(
                           fontSize: 13,
                           height: 1.5,
-                          color: Colors.white.withOpacity(0.5),
+                          color: Colors.white.withValues(alpha: 0.5),
                         ),
                       ),
                       const SizedBox(height: 28),
@@ -147,7 +147,7 @@ class _ScreenThreeState extends State<ScreenThree> with SingleTickerProviderStat
                             borderRadius: BorderRadius.circular(16),
                             gradient: LinearGradient(
                               colors: _isSuccess
-                                  ? [Colors.emerald.shade600, Colors.teal.shade500]
+                                  ? [Colors.green.shade600, Colors.teal.shade500]
                                   : [Colors.cyanAccent.shade700, const Color(0xFF0891B2)],
                             ),
                           ),
