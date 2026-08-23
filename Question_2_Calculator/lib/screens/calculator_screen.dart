@@ -34,7 +34,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         } else {
           final lastChar = _equation[_equation.length - 1];
           if (isOperator && _isOperator(lastChar)) {
-            _equation = _equation.substring(0, _equation.length - 1) + buttonText;
+            _equation =
+                _equation.substring(0, _equation.length - 1) + buttonText;
           } else {
             _equation += buttonText;
           }
@@ -46,10 +47,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   bool _isOperator(String char) {
-    return char == '+' || char == '-' || char == '×' || char == '÷' || char == '%';
+    return char == '+' ||
+        char == '-' ||
+        char == '×' ||
+        char == '÷' ||
+        char == '%';
   }
 
-  bool _isOperatorToken(String t) => t == '+' || t == '-' || t == '*' || t == '/' || t == '%';
+  bool _isOperatorToken(String t) =>
+      t == '+' || t == '-' || t == '*' || t == '/' || t == '%';
 
   double _evaluate(String sanitized) {
     final tokens = <String>[];
@@ -85,9 +91,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         final nextVal = double.tryParse(tokens[i + 1]) ?? 0.0;
         double subVal = 0.0;
         if (token == '*') subVal = prevVal * nextVal;
-        if (token == '/') subVal = nextVal == 0 ? double.infinity : prevVal / nextVal;
+        if (token == '/')
+          subVal = nextVal == 0 ? double.infinity : prevVal / nextVal;
         if (token == '%') subVal = prevVal % nextVal;
-        
+
         tempTokens.add(subVal.toString());
         i += 2;
       } else {
@@ -132,7 +139,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       if (value == value.toInt()) {
         return value.toInt().toString();
       }
-      return value.toStringAsFixed(6).replaceAll(RegExp(r'0+$'), '').replaceAll(RegExp(r'\.$'), '');
+      return value
+          .toStringAsFixed(6)
+          .replaceAll(RegExp(r'0+$'), '')
+          .replaceAll(RegExp(r'\.$'), '');
     } catch (_) {
       return 'Error';
     }
@@ -159,11 +169,16 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               Expanded(
                 child: Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 24,
+                    horizontal: 16,
+                  ),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.02),
+                    color: Colors.white.withValues(alpha: 0.02),
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.white.withOpacity(0.05)),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.05),
+                    ),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -177,7 +192,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           style: TextStyle(
                             fontSize: 44,
                             fontWeight: FontWeight.w300,
-                            color: Colors.white.withOpacity(0.9),
+                            color: Colors.white.withValues(alpha: 0.9),
                             letterSpacing: 1,
                           ),
                         ),
@@ -201,10 +216,26 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _buildButton('AC', color: const Color(0xFFE2E8F0), textColor: Colors.black),
-                      _buildButton('⌫', color: const Color(0xFF475569), textColor: Colors.white),
-                      _buildButton('%', color: const Color(0xFF475569), textColor: Colors.white),
-                      _buildButton('÷', color: Colors.cyan.shade700, textColor: Colors.white),
+                      _buildButton(
+                        'AC',
+                        color: const Color(0xFFE2E8F0),
+                        textColor: Colors.black,
+                      ),
+                      _buildButton(
+                        '⌫',
+                        color: const Color(0xFF475569),
+                        textColor: Colors.white,
+                      ),
+                      _buildButton(
+                        '%',
+                        color: const Color(0xFF475569),
+                        textColor: Colors.white,
+                      ),
+                      _buildButton(
+                        '÷',
+                        color: Colors.cyan.shade700,
+                        textColor: Colors.white,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -214,7 +245,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                       _buildButton('7'),
                       _buildButton('8'),
                       _buildButton('9'),
-                      _buildButton('×', color: Colors.cyan.shade700, textColor: Colors.white),
+                      _buildButton(
+                        '×',
+                        color: Colors.cyan.shade700,
+                        textColor: Colors.white,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -224,7 +259,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                       _buildButton('4'),
                       _buildButton('5'),
                       _buildButton('6'),
-                      _buildButton('-', color: Colors.cyan.shade700, textColor: Colors.white),
+                      _buildButton(
+                        '-',
+                        color: Colors.cyan.shade700,
+                        textColor: Colors.white,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -234,7 +273,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                       _buildButton('1'),
                       _buildButton('2'),
                       _buildButton('3'),
-                      _buildButton('+', color: Colors.cyan.shade700, textColor: Colors.white),
+                      _buildButton(
+                        '+',
+                        color: Colors.cyan.shade700,
+                        textColor: Colors.white,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -243,7 +286,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     children: [
                       _buildButton('0', flex: 2),
                       _buildButton('.'),
-                      _buildButton('=', color: Colors.emerald.shade600, textColor: Colors.white),
+                      _buildButton(
+                        '=',
+                        color: const Color(0xFF10B981),
+                        textColor: Colors.white,
+                      ),
                     ],
                   ),
                 ],
@@ -273,7 +320,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.15),
+              color: Colors.black.withValues(alpha: 0.15),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -285,7 +332,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             color: bgColor,
             child: InkWell(
               onTap: () => _onButtonPressed(text),
-              splashColor: txtColor.withOpacity(0.2),
+              splashColor: txtColor.withValues(alpha: 0.2),
               child: Center(
                 child: Text(
                   text,
