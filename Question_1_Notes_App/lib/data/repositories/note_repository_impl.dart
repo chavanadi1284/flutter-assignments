@@ -50,8 +50,13 @@ class NoteRepositoryImpl implements NoteRepository {
   @override
   Future<void> deleteNote(String id) async {
     // =========================================================================
-    // TODO: MISSING CRUD OPERATION (Implemented for evaluation)
+    // TODO: MISSING CRUD OPERATION (Part of the 75 Marks Assignment)
     // =========================================================================
+    
+    // ❌ OPTION 1: TO SHOW ERROR (Uncomment the line below to show missing operation error)
+    // throw UnimplementedError('The "Delete" operation has not been implemented in NoteRepositoryImpl.');
+    
+    // ✅ OPTION 2: WORKING CODE (Uncomment the 2 lines below to make delete work)
     await Future.delayed(const Duration(milliseconds: 200));
     _notes.removeWhere((note) => note.id == id);
   }
